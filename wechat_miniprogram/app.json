@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/control/control"
+  ],
+  "window": {
+    "navigationBarTitleText": "仓库智能巡检小车控制台",
+    "navigationBarBackgroundColor": "#050505",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#050505"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

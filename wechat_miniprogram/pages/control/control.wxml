@@ -1,0 +1,192 @@
+<view class="control-page">
+  <view class="video-panel">
+    <view class="panel-head">
+      <view>
+        <text class="section-title">实时视频</text>
+        <text class="section-subtitle">当前模式：{{modeText}}</text>
+      </view>
+      <text class="status-pill">{{statusMessage}}</text>
+    </view>
+
+    <view class="video-frame">
+      <image
+        class="video-image"
+        src="{{videoUrl}}"
+        mode="aspectFit"
+        bindload="onVideoLoad"
+        binderror="onVideoError"
+      />
+    </view>
+
+    <view class="video-mode-row">
+      <text class="video-mode-label">{{videoModeText}}</text>
+      <button
+        class="video-mode-button"
+        hover-class="button-hover"
+        bindtap="switchVideoMode"
+      >
+        切换视频模式
+      </button>
+    </view>
+  </view>
+
+  <view class="mode-switch">
+    <button
+      class="mode-button {{currentMode === 'manual' ? 'mode-button-active' : ''}}"
+      data-mode="manual"
+      loading="{{modeLoading === 'manual'}}"
+      disabled="{{modeLoading !== ''}}"
+      hover-class="button-hover"
+      bindtap="switchMode"
+    >
+      手动控制
+    </button>
+    <button
+      class="mode-button {{currentMode === 'auto' ? 'mode-button-active' : ''}}"
+      data-mode="auto"
+      loading="{{modeLoading === 'auto'}}"
+      disabled="{{modeLoading !== ''}}"
+      hover-class="button-hover"
+      bindtap="switchMode"
+    >
+      自主巡检
+    </button>
+  </view>
+
+  <view wx:if="{{currentMode === 'manual'}}" class="control-panel">
+    <view class="panel-head">
+      <view>
+        <text class="section-title">手动控制</text>
+        <text class="section-subtitle">速度：{{selectedSpeed}}</text>
+      </view>
+      <text class="action-log">{{lastActionText}}</text>
+    </view>
+
+    <view class="speed-options">
+      <button
+        wx:for="{{speedOptions}}"
+        wx:key="*this"
+        class="speed-button {{selectedSpeed === item ? 'speed-button-active' : ''}}"
+        data-speed="{{item}}"
+        hover-class="button-hover"
+        bindtap="selectSpeed"
+      >
+        {{item}}
+      </button>
+    </view>
+
+    <view class="direction-pad">
+      <view class="dpad-row">
+        <button
+          class="direction-button"
+          data-direction="forward"
+          loading="{{manualLoadingDirection === 'forward'}}"
+          disabled="{{manualBusy}}"
+          hover-class="button-hover"
+          bindtap="onMoveTap"
+        >
+          前进
+        </button>
+      </view>
+      <view class="dpad-row dpad-middle">
+        <button
+          class="direction-button"
+          data-direction="left"
+          loading="{{manualLoadingDirection === 'left'}}"
+          disabled="{{manualBusy}}"
+          hover-class="button-hover"
+          bindtap="onMoveTap"
+        >
+          左转
+        </button>
+        <button
+          class="direction-button stop-direction"
+          data-direction="stop"
+          loading="{{manualLoadingDirection === 'stop'}}"
+          disabled="{{manualBusy}}"
+          hover-class="button-hover"
+          bindtap="onMoveTap"
+        >
+          停止
+        </button>
+        <button
+          class="direction-button"
+          data-direction="right"
+          loading="{{manualLoadingDirection === 'right'}}"
+          disabled="{{manualBusy}}"
+          hover-class="button-hover"
+          bindtap="onMoveTap"
+        >
+          右转
+        </button>
+      </view>
+      <view class="dpad-row">
+        <button
+          class="direction-button"
+          data-direction="back"
+          loading="{{manualLoadingDirection === 'back'}}"
+          disabled="{{manualBusy}}"
+          hover-class="button-hover"
+          bindtap="onMoveTap"
+        >
+          后退
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:elif="{{currentMode === 'auto'}}" class="control-panel">
+    <view class="panel-head">
+      <view>
+        <text class="section-title">自主巡检</text>
+        <text class="section-subtitle">YOLO 自动控制</text>
+      </view>
+      <text class="action-log">{{lastActionText}}</text>
+    </view>
+
+    <view class="auto-actions">
+      <button
+        class="auto-button emergency-button"
+        loading="{{stopLoading}}"
+        hover-class="button-hover"
+        bindtap="onStopTap"
+      >
+        急停
+      </button>
+      <button
+        class="auto-button resume-button"
+        loading="{{resumeLoading}}"
+        hover-class="button-hover"
+        bindtap="onResumeTap"
+      >
+        恢复巡检
+      </button>
+    </view>
+  </view>
+
+  <view wx:if="{{currentMode !== 'manual' && currentMode !== 'auto'}}" class="control-panel">
+    <text class="empty-mode">正在读取后端模式...</text>
+  </view>
+
+  <view class="status-panel">
+    <view class="panel-head">
+      <view>
+        <text class="section-title">车辆状态</text>
+        <text class="section-subtitle">每 1 秒刷新</text>
+      </view>
+      <text class="refresh-time">{{lastUpdateTime}}</text>
+    </view>
+
+    <view class="status-grid">
+      <view
+        wx:for="{{statusRows}}"
+        wx:key="key"
+        class="status-card {{item.wide ? 'status-card-wide' : ''}}"
+      >
+        <text class="status-label">{{item.key}}</text>
+        <text class="status-value {{item.valueClass}}">{{item.value}}</text>
+        <text class="status-name">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,309 @@
+page {
+  background: #050505;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 8rpx;
+  background: #1b1b1b;
+  color: #f2f2f2;
+  line-height: normal;
+}
+
+button::after {
+  border: none;
+}
+
+button[disabled] {
+  color: #858585 !important;
+  background: #2b2b2b !important;
+  box-shadow: none !important;
+}
+
+.button-hover {
+  opacity: 0.82;
+}
+
+.control-page {
+  min-height: 100vh;
+  padding: 20rpx 22rpx 48rpx;
+  box-sizing: border-box;
+  background: #050505;
+  color: #eeeeee;
+}
+
+.video-panel,
+.control-panel,
+.status-panel {
+  padding: 22rpx;
+  border: 1rpx solid #2e2e2e;
+  border-radius: 8rpx;
+  background: #111111;
+  box-sizing: border-box;
+}
+
+.control-panel,
+.status-panel {
+  margin-top: 18rpx;
+}
+
+.panel-head,
+.mode-switch,
+.auto-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-head {
+  margin-bottom: 18rpx;
+}
+
+.section-title,
+.section-subtitle,
+.status-label,
+.status-value,
+.status-name {
+  display: block;
+}
+
+.section-title {
+  color: #f4f4f4;
+  font-size: 30rpx;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.section-subtitle {
+  margin-top: 6rpx;
+  color: #9f9f9f;
+  font-size: 21rpx;
+  line-height: 1.35;
+}
+
+.status-pill,
+.refresh-time,
+.action-log {
+  max-width: 300rpx;
+  padding: 8rpx 12rpx;
+  border: 1rpx solid #343434;
+  border-radius: 8rpx;
+  background: #1b1b1b;
+  color: #cfcfcf;
+  font-size: 21rpx;
+  line-height: 1.35;
+  box-sizing: border-box;
+}
+
+.action-log {
+  text-align: right;
+}
+
+.video-frame {
+  width: 100%;
+  height: 390rpx;
+  overflow: hidden;
+  border: 1rpx solid #3a3a3a;
+  border-radius: 8rpx;
+  background: #000000;
+  box-sizing: border-box;
+}
+
+.video-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+}
+
+.video-mode-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12rpx;
+  margin-top: 10rpx;
+}
+
+.video-mode-label {
+  color: #9f9f9f;
+  font-size: 21rpx;
+  line-height: 1.35;
+}
+
+.video-mode-button {
+  flex: none;
+  min-width: 168rpx;
+  height: 48rpx;
+  padding: 0 14rpx;
+  border: 1rpx solid #3a3a3a;
+  background: #1b1b1b;
+  color: #dcdcdc;
+  font-size: 21rpx;
+  font-weight: 700;
+}
+
+.mode-switch {
+  margin-top: 14rpx;
+  gap: 14rpx;
+}
+
+.mode-button {
+  flex: 1;
+  height: 88rpx;
+  border: 1rpx solid #3a3a3a;
+  background: #1b1b1b;
+  color: #dcdcdc;
+  font-size: 29rpx;
+  font-weight: 900;
+}
+
+.mode-button-active {
+  border-color: #6ed28b;
+  background: #17321f;
+  color: #dfffe8;
+  box-shadow: 0 0 20rpx rgba(31, 214, 117, 0.22);
+}
+
+.speed-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 12rpx;
+  margin-bottom: 22rpx;
+}
+
+.speed-button {
+  flex: 1;
+  height: 76rpx;
+  border: 1rpx solid #353535;
+  background: #1b1b1b;
+  color: #d8d8d8;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.speed-button-active {
+  border-color: #6ed28b;
+  background: #17321f;
+  color: #dfffe8;
+}
+
+.direction-pad {
+  padding-top: 2rpx;
+}
+
+.dpad-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 14rpx;
+}
+
+.dpad-row:first-child {
+  margin-top: 0;
+}
+
+.dpad-middle {
+  justify-content: space-between;
+  gap: 14rpx;
+}
+
+.direction-button {
+  width: 204rpx;
+  height: 112rpx;
+  border: 1rpx solid #3c3c3c;
+  background: #232323;
+  color: #f0f0f0;
+  font-size: 32rpx;
+  font-weight: 900;
+  box-shadow: 0 10rpx 22rpx rgba(0, 0, 0, 0.32);
+}
+
+.stop-direction,
+.emergency-button {
+  border-color: #9a1e27;
+  background: #9f1824;
+  color: #f7f7f7;
+}
+
+.auto-button {
+  flex: 1;
+  height: 112rpx;
+  border: 1rpx solid #3a3a3a;
+  color: #f4f4f4;
+  font-size: 33rpx;
+  font-weight: 900;
+}
+
+.auto-actions {
+  gap: 16rpx;
+}
+
+.resume-button {
+  border-color: #157a3c;
+  background: #0f7a3a;
+  color: #edfff3;
+}
+
+.empty-mode {
+  display: block;
+  padding: 28rpx 0;
+  color: #bcbcbc;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.status-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -7rpx;
+}
+
+.status-card {
+  width: 50%;
+  min-height: 140rpx;
+  padding: 18rpx;
+  border: 7rpx solid #111111;
+  background: #1a1a1a;
+  box-sizing: border-box;
+}
+
+.status-card-wide {
+  width: 100%;
+}
+
+.status-label {
+  color: #8f8f8f;
+  font-size: 20rpx;
+  line-height: 1.35;
+}
+
+.status-value {
+  margin-top: 12rpx;
+  color: #eeeeee;
+  font-size: 28rpx;
+  font-weight: 900;
+  line-height: 1.25;
+  word-break: break-all;
+}
+
+.status-name {
+  margin-top: 10rpx;
+  color: #686868;
+  font-size: 18rpx;
+  line-height: 1.3;
+}
+
+.value-strong {
+  color: #f4f4f4;
+}
+
+.value-warning {
+  color: #ffcf5c;
+}
+
+.value-danger {
+  color: #ff6868;
+}
