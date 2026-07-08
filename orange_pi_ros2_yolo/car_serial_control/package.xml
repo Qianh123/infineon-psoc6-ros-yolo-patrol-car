@@ -4,7 +4,7 @@
   <name>car_serial_control</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="hw@example.com">HwHiAiUser</maintainer>
+  <maintainer email="已脱敏">已脱敏</maintainer>
   <license>TODO: License declaration</license>
 
   <depend>rclpy</depend>
